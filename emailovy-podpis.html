@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+
+    #generatedHtml {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>HTML Generator</h2>
+
+  <form id="htmlForm">
+    <label for="pageTitle">Page Title:</label>
+    <input type="text" id="pageTitle" name="pageTitle" placeholder="Enter page title">
+
+    <label for="paragraphContent">Paragraph Content:</label>
+    <input type="text" id="paragraphContent" name="paragraphContent" placeholder="Enter paragraph content">
+
+    <button type="button" onclick="generateHtml()">Generate HTML</button>
+  </form>
+
+  <div id="generatedHtml"></div>
+
+  <script>
+    function generateHtml() {
+      var pageTitle = document.getElementById('pageTitle').value;
+      var paragraphContent = document.getElementById('paragraphContent').value;
+
+      var generatedHtml = '<!DOCTYPE html>\n<html lang="en">\n<head>\n';
+      generatedHtml += '  <meta charset="UTF-8">\n';
+      generatedHtml += '  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n';
+      generatedHtml += '  <title>' + pageTitle + '</title>\n';
+      generatedHtml += '</head>\n<body>\n\n';
+      generatedHtml += '  <h1>' + pageTitle + '</h1>\n';
+      generatedHtml += '  <p>' + paragraphContent + '</p>\n\n';
+      generatedHtml += '</body>\n</html>';
+
+      document.getElementById('generatedHtml').innerText = generatedHtml;
+    }
+  </script>
+
+</body>
+</html>
